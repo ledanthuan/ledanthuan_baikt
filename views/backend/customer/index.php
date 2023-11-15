@@ -1,7 +1,10 @@
 <?php
-use App\Models\Category;
-$list = Category::where('status','!=',0)->OrderBy('created_at','DESC')->get();
+use App\Models\User;
+$list = User::where('status','!=',0)
+  ->orderBY('created_at','DESC')
+  ->get();
 ?>
+
 <?php require_once '../views/backend/header.php';?>
       <!-- CONTENT -->
       <div class="content-wrapper">
@@ -10,7 +13,7 @@ $list = Category::where('status','!=',0)->OrderBy('created_at','DESC')->get();
                <div class="row mb-2">
                   <div class="col-sm-12">
                      <h1 class="d-inline">Tất cả khách hàng</h1>
-                     <a href="customer_create.html" class="btn btn-sm btn-primary">Thêm khách hàng</a>
+                     <a href="index.php?option=customer&cat=create" class="btn btn-sm btn-primary">Thêm khách hàng</a>
                   </div>
                </div>
             </div>
@@ -35,27 +38,40 @@ $list = Category::where('status','!=',0)->OrderBy('created_at','DESC')->get();
                         </tr>
                      </thead>
                      <tbody>
+                     <?php if(count($list)>0):?>
+                                 <?php foreach($list as $item): ?>
                         <tr class="datarow">
                            <td>
                               <input type="checkbox">
                            </td>
                            <td>
-                              <img src="../public/images/user.jpg" alt="user.jpg">
+                              <img src="../public/images/user/" alt=" <?= $item->image;?>">
                            </td>
                            <td>
                               <div class="name">
-                                 Hồ Diên Lợi
+                              <?= $item->name;?>
                               </div>
                               <div class="function_style">
-                                 <a href="#">Hiện</a> |
-                                 <a href="#">Chỉnh sửa</a> |
-                                 <a href="customer_show.html">Chi tiết</a> |
-                                 <a href="#">Xoá</a>
-                              </div>
+                              <?php if($item->status==1):?>
+                                       <a  href="index.php?option=user&cat=status&id=<?= $item->id;?>" class="btn btn-success btn-xs" >
+                                       <i class="fas fa-toggle-on"></i> Hiện</a>
+                                       <?php else : ?>
+                                       <a  href="index.php?option=user&cat=status&id=<?= $item->id;?>" class="btn btn-danger btn-xs">
+                                       <i class="fas fa-toggle-on"></i> Ẩn</a>
+                                       <?php endif;?>
+                                       <a  href="index.php?option=user&cat=edit&id=<?= $item->id;?>" class="btn btn-warning btn-xs">
+                                       <i class="fas fa-edit"></i> Chỉnh sửa</a> 
+                                       <a href="index.php?option=user&cat=show&id=<?= $item->id;?>" class="btn btn-info btn-xs">
+                                       <i class="fas fa-eye"></i> Chi tiết</a> 
+                                       <a href="index.php?option=user&cat=delete&id=<?= $item->id;?>" class="btn btn-danger btn-xs">
+                                       <i class="fas fa-trash"></i> Xoá</a>
+                                    </div>
                            </td>
-                           <td>0987654331</td>
-                           <td>dienloisoft@gmail.com</td>
+                           <td> <?= $item->phone;?></td>
+                           <td> <?= $item->email;?></td>
                         </tr>
+                        <?php endforeach;?>
+                              <?php endif;?>
                      </tbody>
                   </table>
                </div>

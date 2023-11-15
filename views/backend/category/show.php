@@ -64,24 +64,24 @@ if($category==null)
                                           alt="<?= $category->image;?>"></td>
                               </tr>
                               <tr>
-                                 <td>SORT_ORDER</td>
+                                 <td>Từ khóa(SEO)</td>
+                                 <td><?=$category->metakey;?></td>
+                              </tr>
+                              <tr>
+                                 <td>Mô tả(SEO)</td>
+                                 <td><?=$category->metadesc;?></td>
+                              </tr>
+                              <tr>
+                                 <td>Chủ đề cha</td>
+                                 <td><?=$category->parent_id;?></td>
+                              </tr>
+                              <tr>
+                                 <td>Vị trí</td>
                                  <td><?=$category->sort_order;?></td>
                               </tr>
                               <tr>
-                                 <td>DESCRIPTION</td>
-                                 <td><?=$category->description;?></td>
-                              </tr>
-                              <tr>
-                                 <td>CREATED_BY</td>
-                                 <td><?=$category->created_by;?></td>
-                              </tr>
-                              <tr>
-                                 <td>UPDATED_AT</td>
-                                 <td><?=$category->updated_at;?></td>
-                              </tr>
-                              <tr>
-                                 <td>UPDATED_BY</td>
-                                 <td><?=$category->updated_by;?></td>
+                                 <td>Ngày tạo</td>
+                                 <td><?=$category->created_at;?></td>
                               </tr>
                               <tr>
                                  <td>STATUS</td>

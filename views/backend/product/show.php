@@ -1,14 +1,14 @@
 <?php
-use App\Models\Product;
+use App\Models\Category;
 $dk = [
    ['status','!=',0],
    ['status','!=',0]
 ];
 $id=$_REQUEST['id'];
-$product = Product::find($id);
-if($product==null)
+$category = Category::find($id);
+if($category==null)
 {
-    header("location:index.php?option=product");
+    header("location:index.php?option=category");
 }
 ?>
 <?php require_once "../views/backend/header.php"; ?>
@@ -29,7 +29,7 @@ if($product==null)
             <div class="card">
                <div class="row">
                      <div class="col-md-12 text-right">
-                        <a href="index.php?option=product" class="btn btn-sm btn-info">
+                        <a href="index.php?option=category" class="btn btn-sm btn-info">
                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
                            Về danh sách
                         </a>
@@ -48,44 +48,44 @@ if($product==null)
                            <tbody>
                               <tr>
                                  <td>ID</td>
-                                 <td><?=$product->id;?></td>
+                                 <td><?=$category->id;?></td>
                               </tr>
                               <tr>
                                  <td>NAME</td>
-                                 <td><?=$product->name;?></td>
+                                 <td><?=$category->name;?></td>
                               </tr>
                               <tr>
                                  <td>SLUG</td>
-                                 <td><?=$product->slug;?></td>
+                                 <td><?=$category->slug;?></td>
                               </tr>
                               <tr>
                                  <td>IMAGE</td>
-                                 <td><img src="../public/images/product/<?= $product->image;?>" 
-                                          alt="<?= $product->image;?>"></td>
+                                 <td><img src="../public/images/category/<?= $category->image;?>" 
+                                          alt="<?= $category->image;?>"></td>
                               </tr>
                               <tr>
                                  <td>SORT_ORDER</td>
-                                 <td><?=$product->sort_order;?></td>
+                                 <td><?=$category->sort_order;?></td>
                               </tr>
                               <tr>
                                  <td>DESCRIPTION</td>
-                                 <td><?=$product->description;?></td>
+                                 <td><?=$category->description;?></td>
                               </tr>
                               <tr>
                                  <td>CREATED_BY</td>
-                                 <td><?=$product->created_by;?></td>
+                                 <td><?=$category->created_by;?></td>
                               </tr>
                               <tr>
                                  <td>UPDATED_AT</td>
-                                 <td><?=$product->updated_at;?></td>
+                                 <td><?=$category->updated_at;?></td>
                               </tr>
                               <tr>
                                  <td>UPDATED_BY</td>
-                                 <td><?=$product->updated_by;?></td>
+                                 <td><?=$category->updated_by;?></td>
                               </tr>
                               <tr>
                                  <td>STATUS</td>
-                                 <td><?=$product->status;?></td>
+                                 <td><?=$category->status;?></td>
                               </tr>
                            </tbody>
                         </table>

@@ -6,7 +6,6 @@
          reserved.
       </footer>
    </div>
-   <script src="../public/jquery/jquery-3.7.0.min.js"></script>
    <script src="../public/datatables/js/dataTables.min.js"></script>
    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="../public/dist/js/adminlte.min.js"></script>

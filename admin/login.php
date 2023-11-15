@@ -9,7 +9,7 @@
     <style>
         body{
             padding: 50px;
-            background-image: url('../public/images/background-thiet-ke-thoi-trang_025658046.jpg');
+            background-image: url('../public/images/background.png');
             background-size: cover;
         }
         .swapper{

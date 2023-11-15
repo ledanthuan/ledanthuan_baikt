@@ -4,13 +4,16 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Tiêu đề giao diện</title>
+   <title>Quản trị hệ thống</title>
    <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
       <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
       <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
       <link rel="stylesheet" href="../public/datatables/css/dataTables.min.css">
       <link rel="stylesheet" href="../public/css/backend.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+      <script src="../public/jquery/jquery-3.7.0.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -129,6 +132,98 @@
                            <a href="index.php?option=page" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Trang đơn</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                          Giao diện
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="index.php?option=menu" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Menu</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="index.php?option=slider" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Slider</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                          Hệ thống
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="index.php?option=user" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Thành viên</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="index.php?option=config" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Cấu hình</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                           Giao diện
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="index.php?option=menu" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Menu</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="index.php?option=slider" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Slider</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                           Hệ thống
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="index.php?option=user" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Thành viên</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="index.php?option=config" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Cấu hình</p>
                            </a>
                         </li>
                      </ul>
