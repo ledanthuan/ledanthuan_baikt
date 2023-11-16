@@ -35,7 +35,7 @@ $total=Product::where('status','=',1)->count();
             <?php require_once "views/frontend/mod-product-new.php";?>                            
             </div>
             <div class="col-md-9 order-1 order-md-2">
-               <div class="category-title bg-main">
+               <div class="category-title bg-secondary">
                   <h3 class="fs-5 py-3 text-center">Tất cả sản phẩm</h3>
                </div>
                <div class="product-category mt-3">

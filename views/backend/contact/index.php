@@ -30,7 +30,7 @@ $list = Contact::where('status','!=',0)
                      </div>
                </div>
                <div class="card-body">
-               <?php require_once '../views/backend/message.php' ;?>
+               <?php require_once '../views/backend/messageAlert.php' ;?>
                   <table class="table table-bordered" id="mytable">
                      <thead>
                         <tr>

@@ -16,7 +16,7 @@ $list = Contact::where('status','=',0)
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-sm-12">
-                     <h1 class="d-inline">Thùng rác thương hiệu</h1>
+                     <h1 class="d-inline">Thùng rác </h1>
                   </div>
                </div>
             </div>
@@ -42,7 +42,7 @@ $list = Contact::where('status','=',0)
                   </div>
                </div>
                <div class="card-body">
-               <?php require_once '../views/backend/message.php' ;?>
+               <?php require_once '../views/backend/messageAlert.php' ;?>
                   <div class="row">
                      <div class="col-md-12">
                         <table class="table table-bordered">
@@ -52,7 +52,7 @@ $list = Contact::where('status','=',0)
                                     <input type="checkbox">
                                  </th>
                                  <th class="text-center" style="width:130px;">Hình ảnh</th>
-                                 <th>Tên thương hiệu</th>
+                                 <th>Tên </th>
                                  <th>Tên slug</th>
                               </tr>
                            </thead>

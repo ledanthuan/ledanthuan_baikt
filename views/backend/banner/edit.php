@@ -50,7 +50,7 @@ $id= $_REQUEST['id'];
                   </div>
                </div>
                <div class="card-body">
-               <?php require_once '../views/backend/message.php' ;?>
+               <?php require_once '../views/backend/messageAlert.php' ;?>
                   <div class="row">
                      <div class="col-md-12">
                         <div class="mb-3">

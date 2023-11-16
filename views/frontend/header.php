@@ -24,7 +24,7 @@
                <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm"
                      aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <span class="input-group-text bg-main" id="basic-addon2">
+                  <span class="input-group-text bg-secondary" id="basic-addon2">
                      <i class="fa fa-search" aria-hidden="true"></i>
                   </span>
                </div>
@@ -59,7 +59,7 @@
                   </ul>
                </div>
                <div class="fs-6 py-2">
-                  ĐỔI TRẢ HÀNG HOẶC HOÀN TIỀN <span class="text-main">TRONG 3 NGÀY</span>
+                  ĐỔI TRẢ HÀNG HOẶC HOÀN TIỀN <span class="text-secondary">TRONG 3 NGÀY</span>
                </div>
             </div>
             <div class="col-6 col-sm-6 col-md-1 text-end py-4 py-md-2">
@@ -75,7 +75,7 @@
          </div>
       </div>
    </section>
-   <section class="hdl-mainmenu bg-main">
+   <section class="hdl-mainmenu bg-secondary">
       <div class="container">
          <div class="row">
             <div class="col-12 d-none d-md-block col-md-2 d-none d-md-block">

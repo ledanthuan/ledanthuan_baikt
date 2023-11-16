@@ -36,10 +36,10 @@ foreach($list as $item)
                   <div class="row">
                      <div class="col-md-12 text-right">
                         <button name="THEM" type="submit" class="btn btn-sm btn-success">
-                        <i class="fas fa-save"></i> Lưu[Thêm]
+                        <i class="fas fa-save" aria-hidden="true"></i> Lưu[Thêm]
                         </button>
                         <a href="index.php?option=category"class="btn btn-sm btn-info">
-                        <i class="fas fa-arrow-left"></i> Quay về danh sách </a>
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i> Quay về danh sách </a>
                      </div>
                   </div>
                </div>
@@ -78,13 +78,13 @@ foreach($list as $item)
                                 <lable for="image">Hình ảnh</lable>
                                 <input name="image" id="image" type="file" class="form-control" >
                             </div>
-                            <div class="col-mb-3">
-                                <lable for="status">Trạng thái</lable>
-                                <select id="status" name="status" class="form-control">
-                                    <option vulue="2">Chưa xuất bản</option>
-                                    <option vulue="1">Xuất bản</option>
-                                </select>
-                            </div>
+                            <div class="mb-3">
+                           <label>Trạng thái</label>
+                           <select name="status" class="form-control">
+                              <option value="1">Xuất bản</option>
+                              <option value="2">Chưa xuất bản</option>
+                           </select>
+                        </div>
                         </div>
                     </div>        
                 </div>

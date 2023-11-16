@@ -1,4 +1,4 @@
-<section class="hdl-lastpost bg-main mt-3 py-4">
+<section class="hdl-lastpost bg-secondary mt-3 py-4">
       <div class="container">
          <div class="row">
             <div class="col-md-9">

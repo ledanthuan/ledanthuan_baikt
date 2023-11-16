@@ -1,22 +1,22 @@
 <?php
 use App\Models\Topic;
-
-$list = Topic::where('status','=',0)
-  ->orderBY('created_at','DESC')
-  ->get();
+$list = Topic::where('status','=',0)->orderBy('created_at','DESC')->get();
 ?>
-
-
-
-<?php require_once '../views/backend/header.php' ;?>
-
-      <!-- CONTENT -->
-  <div class="content-wrapper">
+<?php require_once '../views/backend/header.php';?>
+ <!-- CONTENT -->
+ <div class="content-wrapper">
          <section class="content-header">
             <div class="container-fluid">
                <div class="row mb-2">
-                  <div class="col-sm-12">
-                     <h1 class="d-inline">Thùng rác chủ đề</h1>
+                  <div class="col-sm-6">
+                     <h1 class="d-inline">Thùng rác danh mục</h1>
+                  </div>
+                  <div class="col-sm-6">
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.php">Bảng điều khiển</a></li>
+                        /
+                        <li class="braedcrumb-item active">Thùng rác danh mục</li>
+                     </ol>
                   </div>
                </div>
             </div>
@@ -24,74 +24,59 @@ $list = Topic::where('status','=',0)
          <!-- Main content -->
          <section class="content">
             <div class="card">
-               <div class="card-header">
+               <div class="card-header ">
                   <div class="row">
-                     <div class="col-md-6">
-                     <a class="btn btn-sm btn-info "
-                        href="index.php?option=topic">Tất cả</a>
-                        <a class="btn btn-sm btn-warning "
-                         href="index.php?option=topic&cat=trash">
-                         Thùng rác</a>
-                     </div>
-                     <div class="col-md-6 text-right ">
-                     <a href="index.php?option=topic" class="btn btn-sm btn-info">
-                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                     Về danh sách
-                     </a>
+                     <div class="col-md-12 text-right">
+                     <a href="index.php?option=topic"class="btn btn-sm btn-info">
+                     <i class="fas fa-arrow-left"></i> Quay về danh sách </a>
                      </div>
                   </div>
                </div>
                <div class="card-body">
-               <?php require_once '../views/backend/message.php' ;?>
-                  <div class="row">
-                     <div class="col-md-12">
-                        <table class="table table-bordered">
-                           <thead>
-                              <tr>
-                                 <th class="text-center" style="width:30px;">
-                                    <input type="checkbox">
-                                 </th>
-                                 <th class="text-center" style="width:130px;">Hình ảnh</th>
-                                 <th>Tên thương hiệu</th>
-                                 <th>Tên slug</th>
-                              </tr>
-                           </thead>
+               <?php include_once('../views/backend/messageAlert.php');?>
+                        <table class="table table-bordered" id="myTable">
+                              <thead>
+                                 <tr>
+                                    <th class="text-center" style="width:20px;">#</th>
+                                    <th>Tên chủ đề</th>
+                                    <th>Slug</th>
+                                    <th class="text-center" style="width:160px;">Ngày tạo</th>
+                                    <th class="text-center" style="width:200px;">Chức năng</th>
+                                    <th class="text-center" style="width:20px;">ID</th>
+                                 </tr>
+                              </thead>
                            <tbody>
-                           <?php if(count($list)>0):?>
-                                 <?php foreach($list as $item): ?>
-                              <tr class="datarow">
-                                 <td>
-                                    <input type="checkbox">
-                                 </td>
-                                 <td>
-                                    <img class="img-fluid w-100" src="../public/images/topic/<?= $item->image;?>" alt="<?= $item->image;?>">
-                                 </td>
-                                 <td>
-                                    <div class="name">
-                                    <?= $item->name;?>
-                                    </div>
-                                    <div class="function_style">               
-                                       <a href="index.php?option=topic&cat=restore&id=<?= $item->id;?>" class="btn btn-info btn-xs">
-                                       <i class="fas fa-eye"></i> Khôi phục</a> 
-                                       <a href="index.php?option=topic&cat=destroy&id=<?= $item->id;?>" class="btn btn-danger btn-xs">
-                                       <i class="fas fa-trash"></i> Xóa vĩnh viễn</a>
-                                    </div>
-                                 </td>
-                                 <td><?= $item->slug;?></td>
-                              </tr>
-                              <?php endforeach;?>
-                              <?php endif;?>
+                                 <?php foreach ($list as $row):?>
+                                       <tr>
+                                          <td class="text-center">                                  
+                                             <input type="checkbox">
+                                          </td>
+                                          <td><?= $row->name;?></td>
+                                          <td><?= $row->slug;?></td>
+                                          <td class="text-center"><?= $row['created_at'];?></td>
+                                          <td class="text-center">
+                                                <a href="index.php?option=topic&cat=restore&id=<?=$row->id;?>" class="btn btn-success btn-xs">
+                                                <i class="fas fa-undo"></i>Khôi phục
+                                                </a> |
+                                                <a href="index.php?option=topic&cat=destroy&id=<?=$row->id;?>" class="btn btn-danger btn-xs">
+                                                <i class="fas fa-trash"></i>Xóa vv
+                                                </a>                                        
+                                          </td>
+                                          <td class="text-center"><?= $row['id'];?></td>
+                                       </tr>
+                                 <?php endforeach; ?>
                            </tbody>
                         </table>
-                     </div>
                   </div>
                </div>
             </div>
          </section>
       </div>
       <!-- END CONTENT-->
-
-<?php require_once '../views/backend/footer.php' ;?>
-
-
-  
+      <script>
+         $(document).ready(function()
+         {
+            $('#myTable').DataTable();
+         });
+      </script>
+<?php require_once "../views/backend/footer.php"; ?>

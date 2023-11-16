@@ -24,10 +24,10 @@
                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-               <a href="index.html" class="nav-link">Home</a>
+               <a href="index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-               <a href="#" class="nav-link">Contact</a>
+               <a href="index.php?option=contact" class="nav-link">Contact</a>
             </li>
          </ul>
          <ul class="navbar-nav ml-auto">
@@ -136,7 +136,7 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -158,7 +158,7 @@
                            </a>
                         </li>
                      </ul>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -182,7 +182,7 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -204,8 +204,8 @@
                            </a>
                         </li>
                      </ul>
-                  </li>
-                  <li class="nav-item">
+                  </li> -->
+                  <!-- <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -227,7 +227,7 @@
                            </a>
                         </li>
                      </ul>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -243,19 +243,19 @@
                               <p>Tất cả đơn hàng</p>
                            </a>
                         </li>
-                        <!-- <li class="nav-item">
-                           <a href="import" class="nav-link">
+                        <li class="nav-item">
+                           <a href="index.php?option=import" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Nhập hàng</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="export" class="nav-link">
+                           <a href="index.php?option=export" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Xuất hàng</p>
                            </a>
-                        </li> -->
-                     </ul>
+                        </li>
+                     <</ul>
                   </li>
                   <li class="nav-item">
                      <a href="index.php?option=customer" class="nav-link">
@@ -269,6 +269,7 @@
                         <p class="text">Liên hệ</p>
                      </a>
                   </li>
+
                   <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -292,7 +293,7 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -306,15 +307,16 @@
                               <i class="far fa-circle nav-icon"></i>
                               <p>Thành viên</p>
                            </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item">
                            <a href="config" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Cấu hình</p>
                            </a>
                         </li> -->
-                     </ul>
-                  </li>
+                     <!-- </ul>
+                  </li> -->
+
                   <li class="nav-header">LABELS</li>
                   <li class="nav-item">
                      <a href="#" class="nav-link">

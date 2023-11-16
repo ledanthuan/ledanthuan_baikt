@@ -23,7 +23,7 @@ $page=Post::where([['slug','=',$slug],['type','=','post'],['status','=',1]])->fi
          <div class="row">
             <div class="col-md-3 order-2 order-md-1">
                <ul class="list-group mb-3 list-page">
-                  <li class="list-group-item bg-main py-3">Các trang khác</li>
+                  <li class="list-group-item bg-secondary py-3">Các trang khác</li>
                   <li class="list-group-item">
                      <a href="post_page.html">Chính sách mua hàng</a>
                   </li>

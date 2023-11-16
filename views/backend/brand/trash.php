@@ -1,15 +1,22 @@
 <?php
 use App\Models\Brand;
-$list = Brand::where('status','=',0)->OrderBy('created_at','DESC')->get();
+$list = Brand::where('status','=',0)->orderBy('created_at','DESC')->get();
 ?>
 <?php require_once '../views/backend/header.php';?>
-      <!-- CONTENT -->
-      <div class="content-wrapper">
+ <!-- CONTENT -->
+ <div class="content-wrapper">
          <section class="content-header">
             <div class="container-fluid">
                <div class="row mb-2">
-                  <div class="col-sm-12">
+                  <div class="col-sm-6">
                      <h1 class="d-inline">Thùng rác thương hiệu</h1>
+                  </div>
+                  <div class="col-sm-6">
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.php">Bảng điều khiển</a></li>
+                        /
+                        <li class="braedcrumb-item active">Thùng rác thương hiệu</li>
+                     </ol>
                   </div>
                </div>
             </div>
@@ -17,67 +24,61 @@ $list = Brand::where('status','=',0)->OrderBy('created_at','DESC')->get();
          <!-- Main content -->
          <section class="content">
             <div class="card">
-               <div class="row">
-                     <div class="col-md-6">
-                        <a href="index.php?option=brand&cat=trash"class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i> Thùng rác</a>
-                     </div>
-                     <div class="col-md-6 text-right">
-                        <a href="index.php?option=brand" class="btn btn-sm btn-info">
-                           <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                           Về danh sách
-                        </a>
+               <div class="card-header ">
+                  <div class="row">
+                     <div class="col-md-12 text-right">
+                     <a href="index.php?option=brand"class="btn btn-sm btn-info">
+                     <i class="fas fa-arrow-left"></i> Quay về danh sách </a>
                      </div>
                   </div>
+               </div>
                <div class="card-body">
-                  <?php require_once '../views/backend/message.php';?>
-                  <div class="row">
-                     <div class="col-md-12">
-                        <table class="table table-bordered">
-                           <thead>
-                              <tr>
-                                 <th class="text-center" style="width:30px;">
-                                    <input type="checkbox">
-                                 </th>
-                                 <th class="text-center" style="width:130px;">Hình ảnh</th>
-                                 <th>Tên thương hiệu</th>
-                                 <th>Tên slug</th>
-                              </tr>
-                           </thead>
+               <?php include_once('../views/backend/messageAlert.php');?>
+                        <table class="table table-bordered" id="myTable">
+                              <thead>
+                                 <tr>
+                                    <th class="text-center" style="width:20px;">#</th>
+                                    <th>Tên thương hiệu</th>
+                                    <th>Slug</th>
+                                    <th>Mô tả</th>
+                                    <th class="text-center" style="width:160px;">Ngày tạo</th>
+                                    <th class="text-center" style="width:200px;">Chức năng</th>
+                                    <th class="text-center" style="width:20px;">ID</th>
+                                 </tr>
+                              </thead>
                            <tbody>
-                              <?php if(count($list)>0):?>
-                                 <?php foreach ($list as $item):?>
-                                    <tr class="datarow">
-                                       <td>
-                                          <input type="checkbox">
-                                       </td>
-                                       <td>
-                                          <img src="../public/images/brand/<?= $item->image;?>" 
-                                          alt="<?= $item->image;?>">
-                                       </td>
-                                       <td>
-                                          <div class="name">
-                                             <?= $item->name;?>
-                                          </div>
-                                          <div class="function_style">
-                                             <a href="index.php?option=brand&cat=restore&id=<?=$item->id;?>"class="btn btn-info btn-xs">
-                                             <i class="fas fa-undo"></i></i>Khôi phục
-                                             </a> |
-                                             <a href="index.php?option=brand&cat=destroy&id=<?=$item->id;?>"class="btn btn-danger btn-xs">
-                                             <i class="far fa-trash-alt"></i></i>Xoá vv
-                                             </a>
-                                          </div>
-                                       </td>
-                                       <td><?= $item->slug;?></td>
-                                    </tr>
+                                 <?php foreach ($list as $row):?>
+                                       <tr>
+                                          <td class="text-center">                                  
+                                             <input type="checkbox">
+                                          </td>
+                                          <td><?= $row->name;?></td>
+                                          <td><?= $row->slug;?></td>
+                                          <td><?= $row->description;?></td>
+                                          <td class="text-center"><?= $row['created_at'];?></td>
+                                          <td class="text-center">
+                                                <a href="index.php?option=brand&cat=restore&id=<?=$row->id;?>" class="btn btn-success btn-xs">
+                                                <i class="fas fa-undo"></i>Khôi phục
+                                                </a> |
+                                                <a href="index.php?option=brand&cat=destroy&id=<?=$row->id;?>" class="btn btn-danger btn-xs">
+                                                <i class="fas fa-trash"></i>Xóa vv
+                                                </a>                                        
+                                          </td>
+                                          <td class="text-center"><?= $row['id'];?></td>
+                                       </tr>
                                  <?php endforeach; ?>
-                              <?php endif; ?>
                            </tbody>
                         </table>
-                     </div>
                   </div>
                </div>
             </div>
          </section>
       </div>
       <!-- END CONTENT-->
+      <script>
+         $(document).ready(function()
+         {
+            $('#myTable').DataTable();
+         });
+      </script>
 <?php require_once "../views/backend/footer.php"; ?>

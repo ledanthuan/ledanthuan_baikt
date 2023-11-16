@@ -4,7 +4,7 @@ $mod_mainmenu = Menu::where([['parent_id','=','0'],['position','=','mainmenu'],[
 ->orderBy('sort_order','ASC')
 ->get();
 ?>
-<nav class="navbar navbar-expand-lg bg-main">
+<nav class="navbar navbar-expand-lg bg-secondary">
                   <div class="container-fluid">
                      <a class="navbar-brand d-block d-sm-none text-white" href="index.html">DIENLOISHOP</a>
                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

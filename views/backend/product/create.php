@@ -101,13 +101,13 @@ foreach($list_brand as $brand)
                                 <lable for="image">Hình ảnh</lable>
                                 <input name="image" id="image" type="file" class="form-control" required >
                             </div>
-                            <div class="col-mb-3">
-                                <lable for="status">Trạng thái</lable>
-                                <select id="status" name="status" class="form-control">
-                                    <option vulue="2">Chưa xuất bản</option>
-                                    <option vulue="1">Xuất bản</option>
-                                </select>
-                            </div>
+                            <div class="mb-3">
+                           <label>Trạng thái</label>
+                           <select name="status" class="form-control">
+                              <option value="1">Xuất bản</option>
+                              <option value="2">Chưa xuất bản</option>
+                           </select>
+                        </div>
                         </div>
                     </div>        
                 </div>

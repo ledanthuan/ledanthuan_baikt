@@ -15,7 +15,7 @@ $list = Banner::where('status', '!=', 0)
             <div class="row mb-2">
                <div class="col-sm-12">
                   <h1 class="d-inline">Tất cả banner</h1>
-                  <a href="banner_create.html" class="btn btn-sm btn-primary">Thêm banner</a>
+                  <a href="index.php?option=banner&cat=create" class="btn btn-sm btn-primary">Thêm banner</a>
                </div>
             </div>
          </div>
@@ -33,7 +33,7 @@ $list = Banner::where('status', '!=', 0)
                </div>
             </div>
             <div class="card-body">
-               <?php require_once '../views/backend/message.php'; ?>
+               <?php require_once '../views/backend/messageAlert.php'; ?>
                <table class="table table-bordered" id="mytable">
                   <thead>
                      <tr>
@@ -43,6 +43,7 @@ $list = Banner::where('status', '!=', 0)
                         <th class="text-center" style="width:130px;">Hình ảnh</th>
                         <th>Tên banner</th>
                         <th>Liên kết</th>
+                        <th>Chức năng</th>
                      </tr>
                   </thead>
                   <tbody>
@@ -59,7 +60,10 @@ $list = Banner::where('status', '!=', 0)
                                  <div class="name">
                                     <?= $item->name; ?>
                                  </div>
-                                 <div class="function_style">
+                              </td>
+                              <td><?= $item->link; ?></td>
+                              <td>
+                              <div class="function_style">
                                     <?php if ($item->status == 1) : ?>
                                        <a href="index.php?option=banner&cat=status&id=<?= $item->id; ?>" class="btn btn-success btn-xs">
                                           <i class="fas fa-toggle-on"></i> Hiện</a>
@@ -74,7 +78,8 @@ $list = Banner::where('status', '!=', 0)
                                     <a href="index.php?option=banner&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
                                        <i class="fas fa-trash"></i> Xoá</a>
                                  </div>
-                              <td><?= $item->link; ?></td>
+                              
+                              </td>
                            </tr>
                         <?php endforeach; ?>
                      <?php endif; ?>

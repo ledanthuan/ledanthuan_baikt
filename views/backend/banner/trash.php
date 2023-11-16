@@ -42,7 +42,7 @@ $list =Banner::where('status','=',0)
                   </div>
                </div>
                <div class="card-body">
-               <?php require_once '../views/backend/message.php' ;?>
+               <?php require_once '../views/backend/messageAlert.php' ;?>
                   <div class="row">
                      <div class="col-md-12">
                         <table class="table table-bordered">
@@ -52,8 +52,8 @@ $list =Banner::where('status','=',0)
                                     <input type="checkbox">
                                  </th>
                                  <th class="text-center" style="width:130px;">Hình ảnh</th>
-                                 <th>Tên thương hiệu</th>
-                                 <th>Tên slug</th>
+                                 <th>Tên banner</th>
+                                 <th>Liên kết</th>
                               </tr>
                            </thead>
                            <tbody>

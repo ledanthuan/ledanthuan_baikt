@@ -36,7 +36,7 @@ $list_product= Product::where('status','=',1)
 <div class="product-category mt-3">
             <div class="row">
                <div class="col-md-3">
-                  <div class="category-title bg-main">
+                  <div class="category-title bg-secondary">
                      <h1 class="fs-5 py-3 text-center text-uppercase"><?=$cat->name;?></h1>
                      <img class="img-fluid d-none d-md-block" src="public/images/category/<?=$cat->image;?>"alt="<?=$cat->image;?>">
                   </div>

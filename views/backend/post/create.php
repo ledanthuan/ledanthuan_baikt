@@ -1,4 +1,17 @@
+<?php
+use App\Models\Category;
+$list = Category::where('status','!=',0)->get();
+$html_parent_id='';
+$html_sort_order='';
+foreach($list as $item)
+{
+    $html_parent_id.="<option value='".$item->id."'>".$item->name."</option>";
+    $html_sort_order.="<option value='".($item->sort_order+1)."'>Sau:".$item->name."</option>";
+}
+?>
 <?php require_once '../views/backend/header.php';?>
+ <!-- CONTENT -->
+ <form action="index.php?option=post&cat=process" method="post" enctype="multipart/form-data">
       <!-- CONTENT -->
       <div class="content-wrapper">
          <section class="content-header">
@@ -17,12 +30,13 @@
                      <i class="fa fa-arrow-left" aria-hidden="true"></i>
                      Về danh sách
                      </a>
-                  <button class="btn btn-sm btn-success" name="CHANGEADD">
+                  <button class="btn btn-sm btn-success" type="submit" name="THEM">
                      <i class="fa fa-save" aria-hidden="true"></i>
                      Thêm bài viết
                   </button>
                </div>
                <div class="card-body">
+               <?php include_once('../views/backend/messageAlert.php');?>
                   <div class="row">
                      <div class="col-md-9">
                         <div class="mb-3">
@@ -39,13 +53,13 @@
                         </div>
                      </div>
                      <div class="col-md-3">
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                            <label>Chủ đề (*)</label>
                            <select name="topic_id" class="form-control">
                               <option value="">None</option>
                               <option value="1">Tên danh mục</option>
                            </select>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                            <label>Hình đại diện</label>
                            <input type="file" name="image" class="form-control">
@@ -64,5 +78,6 @@
          </section>
       </div>
       <!-- END CONTENT-->
+ </form>
 <?php require_once '../views/backend/footer.php';?>
   

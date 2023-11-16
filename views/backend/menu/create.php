@@ -17,7 +17,7 @@ foreach($list as $item)
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-sm-6">
-                     <h1 class="d-inline">Tất cả danh mục</h1>
+                     <h1 class="d-inline">Thêm menu</h1>
                   </div>
                   <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
@@ -78,13 +78,13 @@ foreach($list as $item)
                                 <lable for="image">Hình ảnh</lable>
                                 <input name="image" id="image" type="file" class="form-control" >
                             </div>
-                            <div class="col-mb-3">
-                                <lable for="status">Trạng thái</lable>
-                                <select id="status" name="status" class="form-control">
-                                    <option vulue="2">Chưa xuất bản</option>
-                                    <option vulue="1">Xuất bản</option>
-                                </select>
-                            </div>
+                            <div class="mb-3">
+                           <label>Trạng thái</label>
+                           <select name="status" class="form-control">
+                              <option value="1">Xuất bản</option>
+                              <option value="2">Chưa xuất bản</option>
+                           </select>
+                        </div>
                         </div>
                     </div>        
                 </div>

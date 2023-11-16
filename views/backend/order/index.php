@@ -1,94 +1,129 @@
 <?php
+use App\Models\User;
 use App\Models\Order;
-$list = Order::where('status','!=',0)
-  ->orderBY('created_at','DESC')
-  ->get();
-?>
 
-<?php require_once '../views/backend/header.php';?>
-      <!-- CONTENT -->
-    <form action="index.php?option=order&cat=process" method="post" enctype="multipart/form-data">
-      <div class="content-wrapper">
-         <section class="content-header">
-            <div class="container-fluid">
-               <div class="row mb-2">
-                  <div class="col-sm-12">
-                     <h1 class="d-inline">Tất cả đơn hàng</h1>
-                     <a href="order_create.html" class="btn btn-sm btn-primary">Thêm thương hiêu</a>
-                  </div>
+$list = Order::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+// lấy user_id
+$list = Order::join('user', 'order.user_id', '=', 'user.id')
+   ->where('order.status', '!=', 0)
+   ->orderBy('order.created_at', 'desc')
+   ->select("order.*", "user.id as user_id")
+   ->get();
+
+?>
+<?php require_once '../views/backend/header.php'; ?>
+
+<div class="content-wrapper">
+   <!-- Content Header (order header) -->
+   <section class="content-header">
+      <div class="container-fluid">
+         <div class="row mb-2">
+            <div class="col-sm-6">
+               <strong class="text-dark text-lg">TẤT CẢ ĐƠN HÀNG</strong>
+            </div>
+
+         </div>
+      </div><!-- /.container-fluid -->
+   </section>
+
+
+   <!-- Main content -->
+   <section class="content">
+
+
+      <!-- Default box -->
+      <div class="card">
+         <div class="card-header">
+            <div class="row">
+               <div class="col-sm-6">
+                  <a href="index.php?option=order&cat=trash" class="btn btn-danger btn-sm">
+                     <i class="fas fa-trash"></i> Thùng rác</a>
+               </div>
+
+               <div class="col-sm-6 text-right">
+                  <a href="index.php?option=order&cat=create" class="btn btn-sm btn-primary">Thêm đơn hàng</a>
                </div>
             </div>
-         </section>
-         <!-- Main content -->
-         <section class="content">
-            <div class="card">
-               <div class="card-header p-2">
-               <div class="col-md-6 text-left">
-                        <a class="btn btn-sm btn-info "
-                        href="index.php?option=order">Tất cả</a>
-                        <a class="btn btn-sm btn-warning "
-                         href="index.php?option=order&cat=trash">
-                         Thùng rác</a>
-                  </div>
-               </div>
-               <div class="card-body p-2">
-               <?php require_once '../views/backend/message.php' ;?>
-                  <table class="table table-bordered">
-                     <thead>
+         </div>
+         <div class="card-body">
+            <?php require_once '../views/backend/messageAlert.php'; ?>
+            <table class="table table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th class="text-center" style="width:30px;">
+                        <input type="checkbox">
+                     </th>
+                     <th class="text-center">Tên giao hàng</th>
+                     <th class="text-center">Email giao hàng</th>
+                     <th class="text-center">SĐT giao hàng</th>
+                     <th class="text-center">Địa chỉ giao hàng</th>
+                     <th class="text-center">Mã Khách Hàng</th>
+                     <th class="text-center" style="width:170px">Chức năng</th>
+                     <th class="text-center" style="width:30px">ID</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php if (count($list) > 0) : ?>
+                     <?php foreach ($list as $item) : ?>
                         <tr>
-                           <th class="text-center" style="width:30px;">
-                              <input type="checkbox">
-                           </th>
-                           
-                           <th >Mã khách hàng</th>
-                           <th>Tên người nhận</th>
-                           <th>Địa chỉ người nhận</th>
-                           <th>Điện thoại người nhận	</th>                           
+                           <td class="text-center">
+                              <input type="checkbox" />
+                           <td class="text-center">
+                              <div class="deliveryname"></div>
+                              <?= $item->deliveryname; ?>
+                           </td>
+                           <td class="text-center">
+                              <div class="deliveryemail"></div>
+                              <?= $item->deliveryemail; ?>
+                           </td>
+                           <td class="text-center">
+                              <div class="deliveryphone"></div>
+                              <?= $item->deliveryphone; ?>
+                           </td>
+                           <td class="text-center">
+                              <div class="deliveryaddress"></div>
+                              <?= $item->deliveryaddress; ?>
+                           </td>
+                           <td class="text-center">
+                              <div class="user_id"></div>
+                              <?= $item->user_id; ?>
+                           </td>
+                           <td class="text-center">
+                              <?php if ($item->status == 2) : ?>
+                                 <a href="index.php?option=order&cat=status&id=<?= $item->id; ?>" class="btn btn-sm btn-dark">
+                                    <i class="fas fa-toggle-off"></i>
+                                 </a>
+                              <?php else : ?>
+                                 <a href="index.php?option=order&cat=status&id=<?= $item->id; ?>" class="btn btn-sm btn-success">
+                                    <i class="fas fa-toggle-on"></i>
+                                 </a>
+                              <?php endif; ?>
+                              <a href="index.php?option=order&cat=show&id=<?= $item->id; ?>" class="btn btn-sm btn-info">
+                                 <i class="far fa-eye"></i>
+                              </a>
+                              <a href="index.php?option=order&cat=edit&id=<?= $item->id; ?>" class="btn btn-sm btn-primary">
+                                 <i class="far fa-edit"></i>
+                              </a>
+                              <a href="index.php?option=order&cat=delete&id=<?= $item->id; ?>" class="btn btn-sm btn-danger">
+                                 <i class="fas fa-trash"></i>
+                              </a>
+                           <td class="text-center"><?= $item->id; ?></td>
                         </tr>
-                     </thead>
-                     <tbody>
-                     <?php if(count($list)>0):?>
-                                 <?php foreach($list as $item): ?>
-                        <tr class="datarow">
-                           <td>
-                              <input type="checkbox">
-                           </td>
-                           <td>
-                           <div class="user_id">
-                              <?= $item->user_id;?>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="name">
-                              <?= $item->deliveryname;?>
-                              </div>
-                              <div class="function_style">
-                              <?php if($item->status==1):?>
-                                       <a  href="index.php?option=order&cat=status&id=<?= $item->id;?>" class="btn btn-success btn-xs" >
-                                       <i class="fas fa-toggle-on"></i> Hiện</a>
-                                       <?php else : ?>
-                                       <a  href="index.php?option=order&cat=status&id=<?= $item->id;?>" class="btn btn-danger btn-xs">
-                                       <i class="fas fa-toggle-on"></i> Ẩn</a>
-                                       <?php endif;?>
-                                       <a  href="index.php?option=order&cat=edit&id=<?= $item->id;?>" class="btn btn-warning btn-xs">
-                                       <i class="fas fa-edit"></i> Chỉnh sửa</a> 
-                                       <a href="index.php?option=order&cat=show&id=<?= $item->id;?>" class="btn btn-info btn-xs">
-                                       <i class="fas fa-eye"></i> Chi tiết</a> 
-                                       <a href="index.php?option=order&cat=delete&id=<?= $item->id;?>" class="btn btn-danger btn-xs">
-                                       <i class="fas fa-trash"></i> Xoá</a>
-                                    </div>
-                           </td>
-                           <td><?= $item->deliveryaddress;?></td>
-                           <td><?= $item->deliveryphone;?></td>
-                        </tr>
-                        <?php endforeach;?>
-                              <?php endif;?>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-         </section>
+                     <?php endforeach; ?>
+                  <?php endif; ?>
+               </tbody>
+            </table>
+
+         </div>
+         <!-- /.card-body -->
+
+         <!-- /.card-footer-->
       </div>
-      </form>
-      <!-- END CONTENT-->
-      <?php require_once '../views/backend/footer.php';?>
+      <!-- /.card -->
+
+   </section>
+   <!-- /.content -->
+</div>
+
+
+<?php require_once '../views/backend/footer.php'; ?>

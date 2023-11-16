@@ -12,7 +12,7 @@
         </a>
         <ul class="dropdown-menu">
             <?php foreach($mod_mainmenu1 as $rowmenu1):?>
-                <li><a class="dropdown-item text-main" href="<?=$rowmenu1->link;?>"><?=$rowmenu1->name;?></a></li>
+                <li><a class="dropdown-item text-secondary" href="<?=$rowmenu1->link;?>"><?=$rowmenu1->name;?></a></li>
             <?php endforeach;?>
         </ul>
     </li>
